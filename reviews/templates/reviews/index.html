@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}INDEX{% endblock  %}
+
+{% block body %}
+
+<h2> Welcome to Forms </h2>
+
+<form method = "POST" action = "/">
+    {% csrf_token %}
+    <div class="form-control {% if form.username.errors %}error{% endif %}" >
+   {{form.username.label_tag}}
+    {{form.username}}
+    {{form.username.errors}}
+    </div> 
+    <div class="form-control"> 
+        {{form.review_text.label_tag}}
+        {{form.review_text}}
+    </div>
+    <div class="form-control"> 
+        {{form.rating.label_tag}}
+        {{form.rating}}
+    </div>
+    <button>Send</button>
+</form>
+
+{% endblock  %}
